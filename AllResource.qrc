@@ -1,0 +1,64 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/bars11.png</file>
+        <file>Images/credit71.png</file>
+        <file>Images/news.png</file>
+        <file>Images/online23.png</file>
+        <file>Images/seo1.png</file>
+        <file>Images/three115.png</file>
+        <file>Images/weekly4.png</file>
+        <file>Images/MMProfile.png</file>
+        <file>Images/Dashboard.png</file>
+        <file>Images/user_profile.png</file>
+        <file>Images/businessmen26.png</file>
+        <file>Images/dollar81.png</file>
+        <file>Images/checklist5.png</file>
+        <file>Images/legal10.png</file>
+        <file>Images/calendar66.png</file>
+        <file>Images/settings39.png</file>
+        <file>Images/icon_help.png</file>
+        <file>Images/ProfilePicChange.png</file>
+        <file>Images/ProPicHuge.png</file>
+        <file>Images/Cancel.png</file>
+        <file>Images/Save.png</file>
+        <file>Images/edit.png</file>
+        <file>Images/add.png</file>
+        <file>Images/Search.png</file>
+        <file>Images/back.png</file>
+        <file>Images/downarrow.png</file>
+        <file>Images/leftarrow.png</file>
+        <file>Images/rightarrow.png</file>
+        <file>Images/uparrow.png</file>
+        <file>Images/delete.png</file>
+        <file>Images/Logo.png</file>
+        <file>Images/icon.png</file>
+        <file>Images/password.png</file>
+        <file>Images/useremail.png</file>
+        <file>Images/iconinverted.png</file>
+        <file>Images/Add_2.png</file>
+        <file>Images/ic_action_left33.png</file>
+        <file>Images/ic_action_rate.png</file>
+        <file>Images/ic_action_right33.png</file>
+        <file>Images/ic_action_time_before.png</file>
+        <file>Images/ic_newdown.png</file>
+        <file>Images/ic_action_left_white.png</file>
+        <file>Images/ic_add.png</file>
+        <file>Images/add_user.png</file>
+        <file>Images/ic_ic_action_accept.png</file>
+        <file>Images/user.png</file>
+        <file>Images/DeleteIcon.png</file>
+        <file>Images/User_2.png</file>
+        <file>Images/SendFile.png</file>
+        <file>Images/expand.png</file>
+        <file>Images/ic_expand.png</file>
+        <file>Images/ic_radio_button_on.png</file>
+        <file>Images/Button_Rec Active.png</file>
+        <file>Images/Button_Rec Inactive.png</file>
+        <file>Images/ic_action_hash1.png</file>
+        <file>Images/ic_action_town1.png</file>
+        <file>Images/ic_action_user3.png</file>
+        <file>Images/ic_case.png</file>
+        <file>Images/ic_ic_action_upload.png</file>
+        <file>Images/ic_ic_action_suitcase3.png</file>
+    </qresource>
+</RCC>
