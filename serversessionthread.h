@@ -14,6 +14,7 @@ public:
     void run();
     void sendAllDetails();
 
+
 signals:
     void error(QTcpSocket::SocketError socketError);
 
@@ -43,6 +44,7 @@ private:
     bool isFileorFolder;
 
     QString dirName;
+    bool lock;
 
 };
 

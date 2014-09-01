@@ -1349,7 +1349,7 @@ QLineEdit:focus
                  <widget class="QWidget" name="widget_18" native="true">
                   <layout class="QHBoxLayout" name="horizontalLayout_10">
                    <item>
-                    <widget class="QPushButton" name="pushButton_4">
+                    <widget class="QPushButton" name="DoneButton">
                      <property name="minimumSize">
                       <size>
                        <width>80</width>

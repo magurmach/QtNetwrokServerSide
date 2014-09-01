@@ -34,6 +34,10 @@ private slots:
 
     void showMessageBox(int id,QString ip);
 
+    void on_pushButton_4_clicked();
+
+    void on_DoneButton_clicked();
+
 public slots:
     void addMessage(QString str);
 

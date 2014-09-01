@@ -89,12 +89,14 @@ void MainWindow::on_StudentIdStartEdit_textChanged(const QString &arg1)
 void MainWindow::on_OffToggler_clicked()
 {
     mainServer->startServer();
+    ui->DoneButton->hide();
     ui->ButtonStackOnOff->setCurrentIndex(0);
 }
 
 void MainWindow::on_OnToggler_clicked()
 {
     mainServer->stopServer();
+    ui->DoneButton->show();
     ui->ButtonStackOnOff->setCurrentIndex(1);
 }
 
@@ -116,4 +118,14 @@ void MainWindow::showMessageBox(int id,QString ip)
     default:
         break;
     }
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+
+}
+
+void MainWindow::on_DoneButton_clicked()
+{
+
 }
