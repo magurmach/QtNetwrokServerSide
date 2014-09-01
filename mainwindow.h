@@ -16,6 +16,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+signals:
+    void sayThreadToStop(bool,int,QString);
+
 private slots:
     void on_checkBox_stateChanged(int arg1);
 
@@ -29,8 +32,12 @@ private slots:
 
     void on_OnToggler_clicked();
 
+    void showMessageBox(int id,QString ip);
+
 public slots:
     void addMessage(QString str);
+
+
 private:
     Ui::MainWindow *ui;
     QString rootDirectory;

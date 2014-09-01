@@ -19,9 +19,14 @@ signals:
 
     void messageShow(QString);
 
+    void guiShowMessage(int, QString);
+
+
 public slots:
     void readyRead();
     void disconnected();
+
+    void threadStop(bool value, int id,QString ip);
 
 private:
     int socketDescriptor;
@@ -33,6 +38,11 @@ private:
     bool isDisconncted;
 
     int studentId;
+    QString studentIp;
+
+    bool isFileorFolder;
+
+    QString dirName;
 
 };
 

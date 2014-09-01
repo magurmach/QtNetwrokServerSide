@@ -23,15 +23,22 @@ public:
     void askForDifferentIp();
     bool checkIp(int id, QString ip);
 
+    QString getRootDirectory() const;
+    void setRootDirectory(const QString &value);
+
 protected:
     void incomingConnection(qintptr socketDescriptor);
 
 signals:
     void messageInQueue(QString);
     void mainServerClose();
+    void threadStop(bool value, int id, QString ip);
+    void mainGuiShowMessage(int,QString);
 
 public slots:
     void messagePropagate(QString);
+    void sayThreeadToStop(bool value, int id, QString ip);
+    void guiShowMessage(int id, QString ip);
 
 
 private:
@@ -40,6 +47,9 @@ private:
     QMap<int,QString> studentConnectIP;
     QMutex mutex;
     QMutex ipMutex;
+
+
+    QString rootDirectory;
 };
 
 #endif // SERVER_H

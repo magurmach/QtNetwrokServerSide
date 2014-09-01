@@ -86,6 +86,10 @@ void ServerSessionThread::readyRead()
         {
             QDir().mkdir(dirName+"/"+fName);
         }
+        else
+        {
+            
+        }
     }
     //socket->write(Data);
 }

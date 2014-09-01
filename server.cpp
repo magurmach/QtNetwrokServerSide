@@ -6,12 +6,12 @@
 #include <QThread>
 #include <QMutex>
 #include <QMessageBox>
+#include <QDir>
 
 Server::Server(QObject *parent)
     : QTcpServer(parent)
 {
-
-
+    rootDirectory=QDir::currentPath();
 }
 
 void Server::startServer()
@@ -61,24 +61,8 @@ bool Server::checkIp(int id, QString ip)
         {
             return true;
         }
-        qDebug()<<"Hello"<<endl;
-        QMessageBox x;
-        x.setText(QString("%1 trying to connect different IP address").arg(id));
-        x.setInformativeText("Do you want to allow?");
-        x.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-        int ret=x.exec();
-        switch (ret) {
-        case QMessageBox::Ok:
-            addStudentIp(id,ip);
-            return true;
-            break;
-        case QMessageBox::Cancel:
-            return false;
-            break;
-        default:
-            return false;
-            break;
-        }
+        return false;
+
     }
     else
     {
@@ -90,11 +74,13 @@ bool Server::checkIp(int id, QString ip)
 
 void Server::incomingConnection(qintptr socketDescriptor)
 {
-    qDebug()<<this->thread()<<endl;
+
     ServerSessionThread *thread=new ServerSessionThread(socketDescriptor,this,this);
     //list.append(thread);
     connect(thread,SIGNAL(messageShow(QString)),this,SLOT(messagePropagate(QString)));
     connect(this, SIGNAL(mainServerClose()),thread,SLOT(terminate()));
+    connect(thread,SIGNAL(guiShowMessage(int,QString)),this,SLOT(guiShowMessage(int,QString)));
+    connect(this,SIGNAL(threadStop(bool,int,QString)),thread,SLOT(threadStop(bool,int,QString)));
     thread->start();
 }
 
@@ -115,3 +101,23 @@ void Server::messagePropagate(QString x)
 {
     emit messageInQueue(x);
 }
+
+void Server::sayThreeadToStop(bool value,int id, QString ip)
+{
+    emit threadStop(value,id,ip);
+}
+
+void Server::guiShowMessage(int id, QString ip)
+{
+    emit mainGuiShowMessage(id,ip);
+}
+QString Server::getRootDirectory() const
+{
+    return rootDirectory;
+}
+
+void Server::setRootDirectory(const QString &value)
+{
+    rootDirectory = value;
+}
+

@@ -5,6 +5,7 @@
 #include "server.h"
 #include <QDateTime>
 #include <QIntValidator>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(mainServer, SIGNAL(messageInQueue(QString)),this,SLOT(addMessage(QString)));
     ui->ButtonStackOnOff->setCurrentIndex(1);
     ui->RootDirectoryName->setText((rootDirectory=QDir::currentPath()));
+
+    connect(mainServer,SIGNAL(mainGuiShowMessage(int,QString)),this,SLOT(showMessageBox(int,QString)));
+    connect(this,SIGNAL(sayThreadToStop(bool,int,QString)),mainServer,SLOT(sayThreeadToStop(bool,int,QString)));
 }
 
 void MainWindow::addMessage(QString str)
@@ -54,6 +58,8 @@ void MainWindow::on_BrowseButton_clicked()
         rootDirectory=QDir::currentPath();
     }
     ui->RootDirectoryName->setText(rootDirectory);
+    mainServer->setRootDirectory(rootDirectory);
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -90,4 +96,24 @@ void MainWindow::on_OnToggler_clicked()
 {
     mainServer->stopServer();
     ui->ButtonStackOnOff->setCurrentIndex(1);
+}
+
+void MainWindow::showMessageBox(int id,QString ip)
+{
+    QMessageBox x;
+    x.setText(QString("%1 trying to connect different IP address").arg(id));
+    x.setInformativeText("Do you want to allow?");
+    x.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+    int ret=x.exec();
+    switch (ret) {
+    case QMessageBox::Ok:
+        mainServer->addStudentIp(id,ip);
+        emit sayThreadToStop(false,id,ip);
+        break;
+    case QMessageBox::Cancel:
+        emit sayThreadToStop(true,id,ip);
+        break;
+    default:
+        break;
+    }
 }
