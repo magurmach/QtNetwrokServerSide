@@ -111,6 +111,16 @@ void Server::guiShowMessage(int id, QString ip)
 {
     emit mainGuiShowMessage(id,ip);
 }
+QStringList Server::getConfigurationList() const
+{
+    return configurationList;
+}
+
+void Server::setConfigurationList(const QStringList &value)
+{
+    configurationList = value;
+}
+
 QString Server::getRootDirectory() const
 {
     return rootDirectory;

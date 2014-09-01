@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(mainServer,SIGNAL(mainGuiShowMessage(int,QString)),this,SLOT(showMessageBox(int,QString)));
     connect(this,SIGNAL(sayThreadToStop(bool,int,QString)),mainServer,SLOT(sayThreeadToStop(bool,int,QString)));
+    ui->MaxFileSizeEdirt->setValidator(new QIntValidator(0,1000000000));
 }
 
 void MainWindow::addMessage(QString str)
@@ -127,5 +128,46 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_DoneButton_clicked()
 {
+    QStringList configation;
+    configation.append(QString("%1").arg(ui->comboBox->currentIndex()));
+    if(ui->checkBox->isChecked())
+    {
+        configation.append(ui->FixedFileNameEdit->text());
+    }
+    else
+    {
+        configation.append("-");
+    }
 
+    if(ui->FolderRadioButton->isChecked())
+    {
+        configation.append("Folder");
+    }
+    else
+    {
+        configation.append("File");
+    }
+
+    configation.append(ui->AllowedExtention->text());
+
+    if(ui->MaxFileSizeEdirt->text()=="")
+    {
+        configation.append(QString("%1").arg(qint32(1000000000)));
+    }
+    else
+    {
+        configation.append(ui->MaxFileSizeEdirt->text());
+    }
+
+    if(ui->MaxSubMissionEdit->text()=="")
+    {
+
+        configation.append(QString("%1").arg(qint32(1000000000)));
+    }
+    else
+    {
+        configation.append(ui->MaxSubMissionEdit->text());
+    }
+    mainServer->setConfigurationList(configation);
+    //qDebug()<<configation<<endl;
 }

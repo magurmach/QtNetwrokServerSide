@@ -1119,7 +1119,7 @@ QLineEdit:focus
                        <number>5</number>
                       </property>
                       <item>
-                       <widget class="QRadioButton" name="radioButton">
+                       <widget class="QRadioButton" name="FolderRadioButton">
                         <property name="styleSheet">
                          <string notr="true">QRadioButton
 {
@@ -1149,7 +1149,7 @@ QRadioButton::indicator::checked {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QRadioButton" name="radioButton_2">
+                       <widget class="QRadioButton" name="FileRadioButton">
                         <property name="styleSheet">
                          <string notr="true">QRadioButton
 {
@@ -1176,7 +1176,7 @@ QRadioButton::indicator::checked {
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="FileTypeEdit">
+                       <widget class="QLineEdit" name="AllowedExtention">
                         <property name="styleSheet">
                          <string notr="true">QLineEdit
 {
@@ -1203,7 +1203,7 @@ QLineEdit:focus
 }</string>
                         </property>
                         <property name="placeholderText">
-                         <string>Allowed extensions (.txt, .docx)</string>
+                         <string>*.txt *.jpeg etc</string>
                         </property>
                        </widget>
                       </item>
@@ -1245,7 +1245,7 @@ QLineEdit:focus
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="FixedFileNameEdit_2">
+                    <widget class="QLineEdit" name="MaxFileSizeEdirt">
                      <property name="styleSheet">
                       <string notr="true">QLineEdit
 {
@@ -1302,7 +1302,7 @@ QLineEdit:focus
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="FixedFileNameEdit_3">
+                    <widget class="QLineEdit" name="MaxSubMissionEdit">
                      <property name="minimumSize">
                       <size>
                        <width>137</width>

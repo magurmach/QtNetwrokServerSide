@@ -26,6 +26,9 @@ public:
     QString getRootDirectory() const;
     void setRootDirectory(const QString &value);
 
+    QStringList getConfigurationList() const;
+    void setConfigurationList(const QStringList &value);
+
 protected:
     void incomingConnection(qintptr socketDescriptor);
 
@@ -47,9 +50,9 @@ private:
     QMap<int,QString> studentConnectIP;
     QMutex mutex;
     QMutex ipMutex;
-
-
     QString rootDirectory;
+    QStringList configurationList;
+
 };
 
 #endif // SERVER_H
